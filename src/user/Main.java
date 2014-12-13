@@ -6,19 +6,23 @@ import renderer.Display;
 
 public class Main {
 	
-	public static final boolean FRAMERATE_LOCK = false;
-	public static final int 	FRAMERATE = 30;
+	public static final boolean FRAMERATE_LOCK 	= true;
+	public static final int 	FRAMERATE 		= 30;
 	
 	public static JFrame window;
-	public static Display d = new Display();
+	public static Display d;
 	
 	public static boolean running = true;
 
 	public static void main(String[] args) {
 		window = new JFrame("Display");
-		window.add(d);
 		window.setSize(800, 600);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLocationRelativeTo(null);
+		
+		d = new Display(window.getWidth(), window.getHeight());
+		window.add(d);
+		
 		window.setVisible(true);
 		
 		loop();

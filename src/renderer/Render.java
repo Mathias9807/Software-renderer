@@ -8,7 +8,7 @@ public class Render {
 	public static void render() {
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				pixels[x][y] = colorToHex(x / width, x / width, x / width);
+				pixels[x][y] = colorToHex((double) x / width, (double) x / width, (double) x / width);
 			}
 		}
 	}

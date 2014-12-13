@@ -6,15 +6,18 @@ import java.awt.image.*;
 public class Display extends Canvas {
 	private static final long serialVersionUID = 1L;
 	
+	public int width, height;
 	public BufferedImage 	img;
 	public int[] 			pixels;
 
-	public Display() {
-		img 	= new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	public Display(int w, int h) {
+		width = w;
+		height = h;
+		img 	= new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		pixels 	= ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
-		Render.width = WIDTH;
-		Render.height = HEIGHT;
-		Render.pixels = new int[WIDTH][HEIGHT];
+		Render.width = width;
+		Render.height = height;
+		Render.pixels = new int[width][height];
 	}
 	
 	public void render(){
@@ -26,9 +29,9 @@ public class Display extends Canvas {
 		
 		Render.render();
 		
-		for (int x = 0; x < WIDTH; x++){
-			for (int y = 0; y < HEIGHT; y++){
-				pixels[x + y * WIDTH] = Render.pixels[x][y];
+		for (int x = 0; x < width; x++){
+			for (int y = 0; y < height; y++){
+				pixels[x + y * width] = Render.pixels[x][y];
 			}
 		}
 		
