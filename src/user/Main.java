@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		Display d = new Display();
 		
-		window = new JFrame("Display");
+		window = new JFrame("Gitworks");
 		window.add(d);
 		window.setSize(800, 600);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
