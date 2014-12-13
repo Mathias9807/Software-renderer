@@ -15,9 +15,7 @@ public class Display extends Canvas {
 		height = h;
 		img 	= new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		pixels 	= ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
-		Render.width = width;
-		Render.height = height;
-		Render.pixels = new int[width][height];
+		Render.init(width, height);
 	}
 	
 	public void render(){

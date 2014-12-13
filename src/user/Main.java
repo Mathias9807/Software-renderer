@@ -6,7 +6,7 @@ import renderer.Display;
 
 public class Main {
 	
-	public static final boolean FRAMERATE_LOCK 	= true;
+	public static final boolean FRAMERATE_LOCK 	= false;
 	public static final int 	FRAMERATE 		= 30;
 	
 	public static JFrame window;
