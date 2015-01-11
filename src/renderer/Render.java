@@ -1,30 +1,47 @@
 package renderer;
 
-import user.Main;
-
 public class Render {
 	
 	public static int width, height;
 	public static int[][] pixels;
 	
-	public static RenderThread[] threads = new RenderThread[4];
+	private static Triangle tri;
 	
 	public static void init(int w, int h) {
 		width = w;
 		height = h;
 		pixels = new int[width][height];
-//		RenderThread.threads = 5;
+		tri = new Triangle();
+		tri.vertices[0] = new Vec3(-1, 0, 0);
+		tri.vertices[1] = new Vec3( 1, 0, 0);
+		tri.vertices[2] = new Vec3( 0, 1, 0);
 	}
 	
 	public static void render() {
-		for (int i = 0; i < 250; i++) {
-			renderScanline(200 + i, 600 - i, 150 + i);
-		}
+		clear(colorToHex(0, 0, 0.4));
+		
+		renderTri(tri);
+	}
+	
+	private static void renderTri(Triangle t) {
+		
 	}
 	
 	public static void renderScanline(int x0, int x1, int y) {
 		for (int x = x0; x < x1; x++) {
-			pixels[x][y] = colorToHex((double) (x - x0) / (x1 - x0), 0, 0);
+			pixels[x][y] = 0xFFFFFF;
+		}
+	}
+	
+	public static void clear() {
+		clear(0);
+	}
+	
+	public static void clear(int color) {
+		for (int x = 0; x < pixels.length; x++) {
+			for (int y = 0; y < pixels[0].length; y++) {
+				pixels[x][y] = color;
+			}
 		}
 	}
 	
